@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* ── Reset & base ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #f8f5f0;
+  --bg-alt:      #ffffff;
+  --bg-muted:    #f0ebe3;
+  --text:        #1a1a1a;
+  --text-muted:  #6b6560;
+  --accent:      #2d6a4f;
+  --accent-light:#d8eee4;
+  --gold:        #c9973a;
+  --gold-light:  #fdf3e0;
+  --border:      #ddd8d0;
+  --radius:      8px;
+  --max-w:       780px;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Page wrapper ─────────────────────────────────────────── */
+.page-wrapper {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+.page-header {
+  text-align: center;
+  padding: 3rem 0 2.5rem;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 0;
+}
+
+.title {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.subtitle {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 1.25rem;
+  line-height: 1.7;
+}
+
+/* ── Doc-type badge ───────────────────────────────────────── */
+.doc-type {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3em 0.85em;
+  border-radius: 50px;
+}
+
+/* ── Sections ─────────────────────────────────────────────── */
+.section {
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.section:first-of-type { border-top: none; }
+
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-variant: small-caps;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  text-transform: lowercase;
+  margin-bottom: 1.25rem;
+}
+
+/* alternating section backgrounds */
+.english-text  { background: var(--bg-alt);   padding: 2.25rem 1.75rem; border-radius: var(--radius); }
+.italian-text  { background: var(--bg-muted); padding: 2.25rem 1.75rem; border-radius: var(--radius); }
+.glossary      { background: var(--bg-alt);   padding: 2.25rem 1.75rem; border-radius: var(--radius); }
+.comprehension     { background: var(--bg-muted); padding: 2.25rem 1.75rem; border-radius: var(--radius); }
+.comprehension-it  { background: var(--bg-alt);   padding: 2.25rem 1.75rem; border-radius: var(--radius); }
+
+/* ── Prose text (narrative sections) ─────────────────────── */
+.english-text p,
+.italian-text p {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  margin-bottom: 1.15em;
+  color: var(--text);
+}
+
+.english-text p:last-child,
+.italian-text p:last-child { margin-bottom: 0; }
+
+/* article subheadings (###) inside prose */
+.english-text h3,
+.italian-text h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 2rem 0 0.75rem;
+}
+
+/* em / italic */
+em { font-style: italic; }
+
+/* ── Dialogue speaker names ───────────────────────────────── */
+.speaker {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin-right: 0.35em;
+}
+
+/* ── Glossary table ───────────────────────────────────────── */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+.glossary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  min-width: 540px;
+}
+
+.glossary-table thead th {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.65rem 0.9rem;
+  white-space: nowrap;
+}
+
+.glossary-table thead th:first-child { border-radius: var(--radius) 0 0 0; }
+.glossary-table thead th:last-child  { border-radius: 0 var(--radius) 0 0; }
+
+.glossary-table tbody tr:nth-child(even) { background: var(--bg-muted); }
+.glossary-table tbody tr:nth-child(odd)  { background: var(--bg-alt); }
+
+.glossary-table tbody tr:hover { background: var(--accent-light); }
+
+.glossary-table td {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.glossary-table td:first-child {
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* italic example sentences in glossary */
+.glossary-table td em { color: var(--text-muted); }
+
+/* ── Q&A (details/summary) ────────────────────────────────── */
+.qa-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.qa-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-alt);
+}
+
+.qa-item[open] { border-color: var(--accent); }
+
+.qa-question {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  list-style: none;
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.qa-question::-webkit-details-marker { display: none; }
+
+.qa-question::before {
+  content: '▶';
+  font-size: 0.6rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.qa-item[open] .qa-question::before { transform: rotate(90deg); }
+
+.qa-question:hover { background: var(--accent-light); }
+
+.qa-answer {
+  padding: 0.85rem 1rem 0.85rem 2.2rem;
+  font-family: 'Lora', serif;
+  font-size: 0.97rem;
+  line-height: 1.8;
+  color: var(--text);
+  border-top: 1px solid var(--border);
+  background: var(--gold-light);
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+.page-footer {
+  text-align: center;
+  padding: 2.5rem 0 1rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  border-top: 1px solid var(--border);
+  margin-top: 2.5rem;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .page-wrapper { padding: 0 1rem 3rem; }
+
+  .page-header { padding: 2rem 0 1.75rem; }
+
+  .english-text,
+  .italian-text,
+  .glossary,
+  .comprehension,
+  .comprehension-it { padding: 1.5rem 1rem; }
+
+  .english-text p,
+  .italian-text p { font-size: 1rem; line-height: 1.8; }
+
+  .glossary-table { font-size: 0.82rem; }
+
+  .qa-question { font-size: 0.88rem; padding: 0.75rem 0.85rem; }
+  .qa-answer   { font-size: 0.9rem;  padding: 0.75rem 0.85rem 0.75rem 2rem; }
+}
